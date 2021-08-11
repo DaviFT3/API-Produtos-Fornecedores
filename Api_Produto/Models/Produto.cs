@@ -16,6 +16,9 @@ namespace Api_Produto.Models
         
         public double Value { get; set;}
 
+        public string Brand { get; set;}
+
+
         [ForeignKey("Fornecedor")]
         public int FornecedorId { get; set; }
 
