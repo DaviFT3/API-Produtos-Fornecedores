@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Api_Produto.Migrations
 {
     [DbContext(typeof(ProdutoContext))]
-    [Migration("20210811175412_ProdutosDB")]
-    partial class ProdutosDB
+    [Migration("20210818204927_tentativa1")]
+    partial class tentativa1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,6 +27,9 @@ namespace Api_Produto.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Cidade")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
@@ -42,6 +45,9 @@ namespace Api_Produto.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Brand")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("FornecedorId")
                         .HasColumnType("int");
 
@@ -56,6 +62,27 @@ namespace Api_Produto.Migrations
                     b.HasIndex("FornecedorId");
 
                     b.ToTable("Produtos");
+                });
+
+            modelBuilder.Entity("Api_Produto.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Api_Produto.Models.Produto", b =>

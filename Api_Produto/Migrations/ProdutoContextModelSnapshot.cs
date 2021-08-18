@@ -62,6 +62,27 @@ namespace Api_Produto.Migrations
                     b.ToTable("Produtos");
                 });
 
+            modelBuilder.Entity("Api_Produto.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("Api_Produto.Models.Produto", b =>
                 {
                     b.HasOne("Api_Produto.Models.Fornecedor", "Fornecedor")

@@ -16,6 +16,8 @@ namespace Api_Produto.Context
 
         public DbSet<Fornecedor> Fornecedores { get; set;}
 
+        public DbSet<User> Users { get; set; }
+
         
     }
 }
